@@ -4,3 +4,6 @@ engine that compile js code into a machine code.
 - To run node on the console just type 'node' Ex: node app.js (current directory)
 - The equivalent of the window object on node is `global`
 - To see and control the current process you just type `process`
+
+Resources
+- Build in modules => https://nodejs.org/api/index.html
