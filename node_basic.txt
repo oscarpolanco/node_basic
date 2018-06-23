@@ -7,3 +7,5 @@ engine that compile js code into a machine code.
 
 Resources
 - Build in modules => https://nodejs.org/api/index.html
+- nodemon => npm install nodemon -g (dev server)
+  To use nodemon just type => nodemon name_of_file.js
