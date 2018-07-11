@@ -14,7 +14,7 @@ Resources
   Ex: node app.js remove --tittle="secrets 2"
 - Debugging => To use the debug mode on the console just need to type the
                following command `node inspect file`.
-               Ex: node inspect debugging.js.
+               Ex: node inspect debugging.js; node inspect app.js --title=title
 
                List => Command that permit you to see the code lines that you
                        need.
