@@ -16,6 +16,10 @@ Resources
                following command `node inspect file`.
                Ex: node inspect debugging.js; node inspect app.js --title=title
 
+               To use the chrome inspector to debug a file just need to change.
+               To see the file you can go to this url: chrome://inspect/
+               the command to `inspect-brk`.
+               Ex: node inspect-brk file.js
                List => Command that permit you to see the code lines that you
                        need.
                        Ex: List(10) => Print the 10 first line of the code.
