@@ -28,3 +28,15 @@ Resources
                repl(read evaluate print loop) => console of the debug.
                debugger => To place a breakpoint on the code; you just need to
                            type debugger.
+- Behind the scene on node => Call stack: Simple data structure that keep track
+                              of the program execution and statements that are
+                              fire inside of V8. Works as a stack putting on the
+                              top the last call.
+                              Node api: The stack just can do one step at the
+                              time.
+                              Callback Queue: Where the callbacks that are ready
+                              to fire store. Need to wait that the callback
+                              stack is empty.
+                              Event Loop: Check the call stack is empty and if
+                              is empty check the callback queue to see if there
+                              something to run and move it to the call stack.
