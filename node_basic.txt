@@ -40,3 +40,5 @@ Resources
                               Event Loop: Check the call stack is empty and if
                               is empty check the callback queue to see if there
                               something to run and move it to the call stack.
+- Callback => Function that is past as an argument to another function that
+              execute after some event past.
