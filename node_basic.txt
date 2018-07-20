@@ -12,6 +12,8 @@ Resources
 - When you are passing arguments with the node command you can specify arguments
   but you can't use double quotes on windows when you are using spaces.
   Ex: node app.js remove --tittle="secrets 2"
+  You can watch your files using the `e` flag
+  Ex: nodemon server.js -e js,hbs
 - Debugging => To use the debug mode on the console just need to type the
                following command `node inspect file`.
                Ex: node inspect debugging.js; node inspect app.js --title=title
