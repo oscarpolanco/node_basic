@@ -2,5 +2,7 @@ notes-node/greetings.txt
 notes-node/playground/notes.json
 notes-node/notes-data.json
 
+node-web-server/server.log
+
 */node_modules
 */package-lock.json
