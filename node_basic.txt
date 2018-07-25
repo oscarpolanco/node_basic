@@ -12,6 +12,8 @@ Resources
 - When you are passing arguments with the node command you can specify arguments
   but you can't use double quotes on windows when you are using spaces.
   Ex: node app.js remove --tittle="secrets 2"
+  You can watch your files using the `e` flag
+  Ex: nodemon server.js -e js,hbs
 - Debugging => To use the debug mode on the console just need to type the
                following command `node inspect file`.
                Ex: node inspect debugging.js; node inspect app.js --title=title
@@ -42,3 +44,11 @@ Resources
                               something to run and move it to the call stack.
 - Callback => Function that is past as an argument to another function that
               execute after some event past.
+- Heroku => To deploy a simple app use heroku.
+            After you install heroku you need to login your user locally using
+            the login command 'heroku login'.
+            heroku key:add => Add your local ssh key to heroku.
+            heroku key:remove mail => remove the key from heroku.
+             ssh -v git@heroku.com => test your connection with heroku.
+            heroku create => Create a new app on the heroku web app and create a
+            new remote to you github repository.
