@@ -1,4 +1,5 @@
 const request = require('supertest');
+const expect = require('expect');
 
 var app = require('./server').app;
 
@@ -14,8 +15,10 @@ it('should return a page not found response', (done) => {
   request(app)
     .get('/error')
     .expect(404)
-    .expect({
-      error: 'Page not found'
+    .expect((res) => {
+      expect(res.body).toInclude({
+        error: 'Page not found'
+      });
     })
     .end(done);
 });
