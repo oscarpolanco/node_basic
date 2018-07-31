@@ -13,5 +13,22 @@ app.get('/error', (req, res) => {
   });
 });
 
+// GET /users
+// Give users a name prop and age prop
+app.get('/users', (req, res) => {
+  res.send([{
+    name: 'Test',
+    age: 20
+  },
+  {
+    name: 'Test2',
+    age: 21
+  },
+  {
+    name: 'Test3',
+    age: 23
+  }]);
+});
+
 app.listen(3000);
 module.exports.app = app;
