@@ -54,3 +54,9 @@ Resources
              ssh -v git@heroku.com => test your connection with heroku.
             heroku create => Create a new app on the heroku web app and create a
             new remote to you github repository.
+
+- Mongo => To run mongo locally; on the bin directory of mongo run the following
+           command`mongo.exe --dbpath path_of_data_folder`
+           Ex: mongo.exe --dbpath /Users/Hey/Desktop/mongo-data
+           To call the mongo console we you just unse the `mongo.exe` command on
+           the bin directory.
