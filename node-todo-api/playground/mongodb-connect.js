@@ -22,6 +22,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   // const db = client.db('Users');
 
   db.collection('Users').insertOne({
+    _id: 123,
     name: 'Test',
     age: 28,
     location: 'Test'
