@@ -22,7 +22,6 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   // const db = client.db('Users');
 
   db.collection('Users').insertOne({
-    _id: 123,
     name: 'Test',
     age: 28,
     location: 'Test'
@@ -31,7 +30,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
       return console.log('Unable to insert todo', err);
     }
 
-    console.log(JSON.stringify(result.ops, undefined, 2));
+    console.log(JSON.stringify(result.ops[0]._id.getTimestamp(), undefined, 2));
   });
 
   client.close();
