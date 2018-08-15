@@ -5,13 +5,18 @@ mongoose.connect('mongodb://localhost:27017/TodoApp', { useNewUrlParser: true } 
 
 const Todo = mongoose.model('Todo', {
   text: {
-    type: String
+    type: String,
+    require: true,
+    minlenght: 1,
+    trim: true
   },
   completed: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   completedAt: {
-    type: Number
+    type: Number,
+    default: null
   }
 });
 
@@ -20,9 +25,7 @@ const newTodo = new Todo({
 });
 
 newTodo2 = new Todo({
-  text: 'sleep',
-  completed: true,
-  completedAt: 2
+  text: ' Edit this video '
 });
 
 newTodo.save().then((doc) => {
@@ -32,6 +35,27 @@ newTodo.save().then((doc) => {
 });
 
 newTodo2.save().then((doc) => {
+  console.log('Saved todo', doc);
+}, (e) => {
+  console.log('Unable to save todo');
+});
+
+// User
+// email - require it - trim it - set type - set ming length of 1
+const User = mongoose.model('User', {
+  email: {
+    type: String,
+    require: true,
+    trim: true,
+    minlenght: 1
+  }
+});
+
+const newUser = new User({
+  email: ' hey@test.com '
+});
+
+newUser.save().then((doc) => {
   console.log('Saved todo', doc);
 }, (e) => {
   console.log('Unable to save todo');
