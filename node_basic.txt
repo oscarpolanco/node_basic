@@ -56,7 +56,7 @@ Resources
             new remote to you github repository.
 
 - Mongo => To run mongo locally; on the bin directory of mongo run the following
-           command`mongo.exe --dbpath path_of_data_folder`
-           Ex: mongo.exe --dbpath /Users/Hey/Desktop/mongo-data
+           command`mongod.exe --dbpath path_of_data_folder`
+           Ex: mongod.exe --dbpath /Users/Hey/Desktop/mongo-data
            To call the mongo console we you just unse the `mongo.exe` command on
            the bin directory.
