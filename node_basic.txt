@@ -54,6 +54,10 @@ Resources
              ssh -v git@heroku.com => test your connection with heroku.
             heroku create => Create a new app on the heroku web app and create a
             new remote to you github repository.
+            To add a tool(addons) to heroku you just need to add this command:
+            `heroku addons:create app:plan`
+            Ex:
+            heroku addons:create mongolab:sandbox --app name_of_the_app
 
 - Mongo => To run mongo locally; on the bin directory of mongo run the following
            command`mongod.exe --dbpath path_of_data_folder`
