@@ -10,7 +10,9 @@ const todos = [{
   text: 'First test todo'
 }, {
   _id: new ObjectID(),
-  text: 'Second test todo'
+  text: 'Second test todo',
+  completed: true,
+  completedAt: 333
 }];
 
 beforeEach((done) => {
@@ -120,7 +122,7 @@ describe('DELETE/todos/:id', () => {
         // query database using findById toNotExist
         // expect(null).toNotExist();
         Todo.findById(hexId).then((todo) => {
-          expect(todo).toNotExist;
+          expect(todo).toBeNull();
           done();
         }).catch((e) => done(e));
       })
@@ -129,15 +131,58 @@ describe('DELETE/todos/:id', () => {
   it('should return 404 if todo not found', (done) => {
     const id = new ObjectID().toHexString();
     request(app)
-    .delete(`/todos/${id}`)
-    .expect(404)
-    .end(done);
+      .delete(`/todos/${id}`)
+      .expect(404)
+      .end(done);
   });
 
   it('should return 404 if object id is invalid', (done) => {
     request(app)
-    .delete(`/todos/123`)
-    .expect(404)
-    .end(done);
+      .delete(`/todos/123`)
+      .expect(404)
+      .end(done);
   });
+});
+
+describe('PATCH/todos/:id', () => {
+  it('should update the todo', (done) => {
+    // grab id of first item
+    const hexId = todos[0]._id.toHexString();
+    const text = 'This should be the new text';
+
+    // update text, set completed true
+    request(app)
+      .patch(`/todos/${hexId}`)
+      .send({
+        completed: true,
+        text
+      })
+      .expect(200) // 200
+      .expect((res) => { // text is changed, complete is true, completedAt is a number .toBeA
+        expect(res.body.todo.text).toBe(text);
+        expect(res.body.todo.completed).toBe(true);
+        expect(typeof res.body.todo.completedAt).toEqual('number');
+      })
+      .end(done);
+  });
+
+  it('should clear completedAt when todo is not completed', (done) => {
+    // grab id if second todo item
+    const hexId = todos[1]._id.toHexString();
+    const text = 'foo';
+
+    request(app)
+      .patch(`/todos/${hexId}`)
+      .send({ // update text, set completed to false
+        text,
+        completed: false
+      })
+      .expect(200) // 200
+      .expect((res) => { // text is changed, completed false, completedAt is null. toNotExist
+        expect(res.body.todo.text).toBe(text);
+        expect(res.body.todo.completed).toBeFalsy();
+        expect(res.body.todo.completedAt).toBeNull();
+      })
+      .end(done);
+  })
 });
