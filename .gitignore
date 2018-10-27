@@ -6,3 +6,5 @@ node-web-server/server.log
 
 */node_modules
 */package-lock.json
+
+node-todo-api/server/config/config.json
