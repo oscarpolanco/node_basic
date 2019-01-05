@@ -2,6 +2,14 @@ const socket = io();
 
 socket.on('connect', () => {
   console.log('Connected to server');
+
+  socket.on('welcomeMessage', function(message) {
+    console.log('welcomeMessage', message);
+  });
+
+  socket.on('newUserJoin', function(message) {
+    console.log('newUserJoin', message);
+  });
 });
 
 socket.on('disconnect', () => {
