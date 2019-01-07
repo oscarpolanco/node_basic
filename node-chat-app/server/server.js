@@ -20,10 +20,10 @@ io.on('connection', (socket) => {
   console.log('new user connected');
 
   // socket.emit from Admin text Welcome to the chat app
-  socket.emit('welcomeMessage', generateMessage('Admin', 'Welcome to the chat app'));
+  socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat app'));
 
   // socket.broadcast.emit from Admin text New user joined
-  socket.broadcast.emit('newUserJoin', generateMessage('Admin', 'New user join'));
+  socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user join'));
 
   socket.on('createMessage', (newMessage, callback) => {
     console.log('createMessage', newMessage);
