@@ -17,14 +17,15 @@ function scrollToBottom () {
 }
 
 socket.on('connect', () => {
-  console.log('Connected to server');
+  const params = jQuery.deparam(window.location.search);
 
-  socket.on('welcomeMessage', function(message) {
-    console.log('welcomeMessage', message);
-  });
-
-  socket.on('newUserJoin', function(message) {
-    console.log('newUserJoin', message);
+  socket.emit('join', params, function (err) {
+    if (err) {
+      alert(err);
+      window.location.href = '/';
+    } else {
+      console.log("No error");
+    }
   });
 });
 
