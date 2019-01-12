@@ -33,10 +33,33 @@ const getCountries = async (currenyCode) => {
   return response.data.map((country) => country.name);
 };
 
+// const convertCurrency = (from, to, amount) => {
+//   let convertedAmount;
+//   return getExcahngeRate(from, to).then((rate) => {
+//     convertedAmount = (amount * rate).toFixed(2);
+//     return getCountries(to);
+//   }).then((countries) => {
+//     return `${amount} ${from} is worth ${convertedAmount} ${to}. You can spend it in the following countries: ${countries.join(', ')}`;
+//   });
+// };
+
+// same
+
+const convertCurrency = async (from, to, amount) => {
+  const rate = await getExcahngeRate(from, to);
+  const convertedAmount = (amount * rate).toFixed(2);
+  const countries = await getCountries(to);
+  return `${amount} ${from} is worth ${convertedAmount} ${to}. You can spend it in the following countries: ${countries.join(', ')}`;
+};
+
 getExcahngeRate('USD', 'CAD').then((rate) => {
   console.log(rate);
 });
 
 getCountries('EUR').then((countries) => {
   console.log(countries);
-})
+});
+
+convertCurrency('USD', 'CAD', 20).then((message) => {
+  console.log(message);
+});
