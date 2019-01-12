@@ -53,7 +53,19 @@ const getStatus = (userId) => {
 
     return `${user.name} has a ${average}% in the class.`;
   });
+};
+
+() => {
+  return new Promise((resolve, reject) => {
+    resolve('Mike')
+  })
 }
+// equal - async returns a promise
+const getStatusAlt = async (userId) => {
+  return 'Mike';
+};
+
+console.log(getStatusAlt());
 
 getUser(2).then((user) => {
   console.log(user);
